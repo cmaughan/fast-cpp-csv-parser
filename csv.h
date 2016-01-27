@@ -244,6 +244,7 @@ namespace io{
                                 read_requested_condition.notify_one();
                         }
 
+#pragma warning (disable : 4715)
                         int finish_read(){
                                 std::unique_lock<std::mutex>guard(lock);
                                 read_finished_condition.wait(
@@ -1051,7 +1052,7 @@ namespace io{
                                 if(e != 0){
                                         T base;
                                         if(e < 0){
-                                                base = 0.1;
+                                                base = 0.1f;
                                                 e = -e;
                                         }else{
                                                 base = 10;
